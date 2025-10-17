@@ -1,113 +1,317 @@
+/* ===== Reset & Body ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #000;
 }
 
-nav {
-  background: #004aad;
-  color: white;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* ===== Header ===== */
+header {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+header .menu { position: relative; margin-right: 20px; }
+header .menu-btn {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+header .dropdown {
+    display: none;
+    position: absolute;
+    background-color: #ff0000;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+header .dropdown a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+header .dropdown a:hover { background-color: #cc0000; }
+header .search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+}
+header .search-bar input {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+header .login { margin-left: 10px; }
+header .login a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-nav .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+/* ===== Banner 3 ảnh ===== */
+:root {
+    --img-width: 26vw;         /* mỗi ảnh rộng 26% màn hình (≈ 80% tổng cho 3 ảnh + overlap) */
+    --img-ratio: 16/9;         /* tỉ lệ ngang */
+    --overlap: 30%;            /* phần ảnh giữa đè 30% */
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
+.banner {
+    background: #000;
+    padding-top: calc(var(--img-width) / (var(--img-ratio)) * 0.3); /* chừa chỗ cho ảnh bên tụt xuống */
 }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
+.banner-images {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 80vw;
+    margin: 0 auto;
+    position: relative;
+    gap: 0;
 }
 
-nav ul li a:hover {
-  text-decoration: underline;
+/* Mỗi khối gồm tiêu đề + ảnh */
+.img-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
-.hero {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: #f4f4f4;
+/* Hộp ảnh */
+.img-box {
+    width: var(--img-width);
+    aspect-ratio: var(--img-ratio);
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    position: relative;
+    transition: transform .35s, z-index .2s, opacity .35s;
+}
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-.hero img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 1rem;
+/* Ảnh giữa đè lên 30% */
+.center {
+    position: relative;
+    z-index: 2;
+    /* Không cần translateY, để ảnh giữa nằm thẳng hàng đáy */
+}
+.center .img-box {
+    width: calc(var(--img-width) * 1.1);  /* ảnh giữa to hơn ~10% */
 }
 
-h1, h2 {
-  color: #004aad;
+
+/* Hai ảnh bên tụt xuống 30% để lộ phần dưới */
+.side {
+    transform: translateY(0);
 }
 
-.product-grid, .accessory-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
+/* ===== Tiêu đề ===== */
+.img-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 8px rgba(0,0,0,0.7);
+    margin: 8px 0;
 }
 
-.product-card, .accessory-card {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  padding: 1rem;
-  text-align: center;
+/* Tiêu đề cho ảnh giữa (dưới ảnh) */
+.img-title.bottom {
+    margin-top: 8px;
 }
 
-.product-card img, .accessory-card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
+/* Tiêu đề cho hai ảnh bên (trên ảnh, nhưng bên ngoài) */
+.img-title.top {
+    margin-bottom: 8px;
 }
 
-#contact {
-  padding: 2rem;
-  text-align: center;
-  background: #f4f4f4;
+/* Hover: nổi bật */
+.img-box:hover {
+    transform: scale(1.06);
+    z-index: 3;
+}
+.banner-images:hover .img-box:not(:hover) {
+    opacity: 0.65;
 }
 
-#contact form {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  margin: 0 auto;
-  gap: 1rem;
+/* ===== Content & Footer giữ nguyên ===== */
+.content {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
 }
-
-#contact input, #contact textarea {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-#contact button {
-  padding: 0.75rem;
-  background: #004aad;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#contact button:hover {
-  background: #003a8c;
+.content .item { width: 48%; text-align: center; margin: 0 1%; }
+.content .item img { max-width: 100%; height: auto; }
+.content .item .category { color: #666; margin: 10px 0; }
+.content .item a {
+    background-color: #ff0000;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
 footer {
-  text-align: center;
-  padding: 1rem;
-  background: #333;
-  color: white;
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+footer .about { flex-grow: 1; }
+footer .social a { margin: 0 10px; }
+footer .social img { width: 20px; height: 20px; }
+footer .phone { text-align: right; }
+/* ===== Top Players ===== */
+.top-players, .top-clubs, .news {
+  padding: 40px 10%;
+  background: #f9f9f9;
+  text-align: center;
+}
+.top-players h2, .top-clubs h2, .news h2 {
+  margin-bottom: 20px;
+  color: #ff0000;
+}
+
+/* Grid players */
+.players-grid, .clubs-grid, .news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.player-card, .club-card, .news-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: transform 0.3s;
+}
+.player-card img, .club-card img, .news-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.player-card:hover, .club-card:hover, .news-card:hover {
+  transform: translateY(-6px);
+}
+/* ===== Đồng bộ tỷ lệ ảnh cho Cầu thủ & CLB ===== */
+.player-card img, 
+.club-card img {
+  width: 100%;
+  aspect-ratio: 4/3;       /* hoặc đổi thành 1/1 nếu muốn ảnh vuông */
+  object-fit: cover;       /* cắt ảnh vừa khung mà không bị méo */
+  border-radius: 10px;
+}
+
+/* Tin tức cũng cho đồng bộ nếu muốn */
+.news-card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.player-card img {
+  width: 100%;
+  aspect-ratio: 3/4;     /* khung dọc: cao hơn rộng */
+  object-fit: cover;     /* cắt ảnh vừa khung */
+  border-radius: 10px;
+}
+
+/* ===== Top Clubs (ảnh ngang) ===== */
+.club-card img {
+  width: 100%;
+  aspect-ratio: 4/3;     /* khung ngang: rộng hơn cao */
+  object-fit: cover;
+  border-radius: 10px;
+}
+.player-card h4,
+.club-card h4 {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #444;
+}
+
+.see-more {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 13px;
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.see-more:hover {
+  text-decoration: underline;
+}
+footer {
+  margin-top: 50px;
+  padding: 30px;
+  background: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 0%);
+  text-align: center;
+  font-size: 14px;
+}
+
+footer h3, footer h4 {
+  margin-bottom: 10px;
+  color: hsl(0, 0%, 0%);
+}
+
+footer a {
+  color: #00aced;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.contact-info p {
+  margin: 5px 0;
+}
+
+.copy {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #888;
+}
+.social-links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-links img {
+  border-radius: 50px;
+  width: 40px;     /* kích thước icon */
+  height: 40px;
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+}
+
