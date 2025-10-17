@@ -3,74 +3,177 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tháp Giải Nhiệt & Phụ Kiện</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>TopFootball</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <nav>
-      <div class="logo">Cooling Tower VN</div>
-      <ul>
-        <li><a href="#home">Trang Chủ</a></li>
-        <li><a href="#products">Sản Phẩm</a></li>
-        <li><a href="#accessories">Phụ Kiện</a></li>
-        <li><a href="#contact">Liên Hệ</a></li>
-      </ul>
-    </nav>
+    <div class="logo">TopFootball</div>
+    <div class="menu">
+      <button class="menu-btn" onclick="toggleDropdown()">Danh mục</button>
+      <div class="dropdown" id="dropdownMenu">
+        <a href="#">Danh mục 1</a>
+        <a href="#">Danh mục 2</a>
+        <a href="#">Danh mục 3</a>
+        <a href="#">Danh mục 4</a>
+      </div>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Tìm kiếm">
+    </div>
+    <div class="login">
+      <a href="login.html">Đăng nhập</a>
+    </div>
   </header>
 
-  <section id="home" class="hero">
-    <h1>Tháp Giải Nhiệt Chất Lượng Cao</h1>
-    <p>Giải pháp làm mát hiệu quả cho công nghiệp và thương mại</p>
-    <img src="images/cooling-tower.jpg" alt="Tháp Giải Nhiệt">
-  </section>
-
-  <section id="products">
-    <h2>Sản Phẩm Tháp Giải Nhiệt</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="images/cooling-tower.jpg" alt="Tháp Giải Nhiệt Loại A">
-        <h3>Tháp Giải Nhiệt Loại A</h3>
-        <p>Hiệu suất cao, tiết kiệm năng lượng, phù hợp với các nhà máy lớn.</p>
+  <!-- Banner 3 ảnh -->
+  <section class="banner">
+    <div class="banner-images">
+      <!-- Ảnh trái -->
+      <div class="img-wrap">
+        <div class="img-title top">
+          <p>ĐỘI BÓNG MẠNH NHẤT EPL HIỆN TẠI</p>
+          LIVERPOOL
+        </div>
+        <div class="img-box side">
+          <img src="image/CLB/Liverpool/2025/01.jpg" alt="Liverpool">
+        </div>
       </div>
-      <div class="product-card">
-        <img src="images/cooling-tower.jpg" alt="Tháp Giải Nhiệt Loại B">
-        <h3>Tháp Giải Nhiệt Loại B</h3>
-        <p>Thiết kế nhỏ gọn, lý tưởng cho các cơ sở sản xuất vừa và nhỏ.</p>
+
+      <!-- Ảnh giữa -->
+      <div class="img-wrap center-wrap">
+        <div class="img-box center">
+          <img src="image/CLB/RealMarid/2018.jpg" alt="Real Madrid 2018">
+        </div>
+        <div class="img-title bottom">
+          <p>ĐỘI HÌNH MẠNH NHẤT LỊCH SỬ</p>
+          REAL MADRID 2018
+        </div>
+      </div>
+
+      <!-- Ảnh phải -->
+      <div class="img-wrap">
+        <div class="img-title top">
+          <p>ĐỘI BÓNG MẠNH NHẤT HIỆN TẠI</p>
+          PARIS SAINT-GERMAIN
+        </div>
+        <div class="img-box side">
+          <img src="image/CLB/PSG/2025/01.jpg" alt="PSG">
+        </div>
       </div>
     </div>
   </section>
+  <!-- Top Cầu thủ -->
+<!-- Top Cầu thủ -->
+<section class="top-players">
+  <h2>⚽ Top Cầu thủ nổi bật</h2>
+  <div class="players-grid">
 
-  <section id="accessories">
-    <h2>Phụ Kiện Tháp Giải Nhiệt</h2>
-    <div class="accessory-grid">
-      <div class="accessory-card">
-        <img src="images/accessory.jpg" alt="Quạt Tháp">
-        <h3>Quạt Tháp</h3>
-        <p>Quạt hiệu suất cao, giảm tiếng ồn, độ bền vượt trội.</p>
-      </div>
-      <div class="accessory-card">
-        <img src="images/accessory.jpg" alt="Bơm Nước">
-        <h3>Bơm Nước</h3>
-        <p>Bơm nước chuyên dụng, lưu lượng lớn, tiết kiệm điện.</p>
-      </div>
+    <!-- Messi -->
+    <div class="player-card"
+         onclick="window.location.href='chatgpt/messi.html'"
+         style="cursor:pointer;">
+      <img src="image/CauThu/Messi/01.jpeg" alt="Messi">
+      <h3>Lionel Messi</h3>
+      <p>Nhóc vuốt râu</p>
+      <h4>🏆 Cầu thủ nhiều Quả Bóng Vàng</h4>
+      <a href="top-bongvang.html" class="see-more" onclick="event.stopPropagation()">Xem Top cầu thủ nhiều QBV</a>
     </div>
-  </section>
 
-  <section id="contact">
-    <h2>Liên Hệ Với Chúng Tôi</h2>
-    <form id="contact-form">
-      <input type="text" id="name" placeholder="Họ và Tên" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <textarea id="message" placeholder="Tin nhắn" required></textarea>
-      <button type="submit">Gửi</button>
-    </form>
-  </section>
+    <!-- Ronaldo -->
+    <div class="player-card"
+         onclick="window.location.href='chatgpt/ronaldo.html'"
+         style="cursor:pointer;">
+      <img src="image/CauThu/Ronaldo/01.jpg" alt="Ronaldo">
+      <h3>Cristiano Ronaldo</h3>
+      <p>Al Nassr</p>
+      <h4>⚡ Cầu thủ ghi bàn nhiều nhất</h4>
+      <a href="topCauThu/top-50-cau-thu-ghi-ban-nhieu-nhat-lich-su.html" class="see-more" onclick="event.stopPropagation()">Xem Top ghi bàn</a>
+    </div>
 
-  <footer>
-    <p>&copy; 2025 Cooling Tower VN. All rights reserved.</p>
-  </footer>
+    <!-- Haaland -->
+    <div class="player-card"
+         onclick="window.location.href='chatgpt/haaland.html'"
+         style="cursor:pointer;">
+      <img src="image/CauThu/Erling_Haaland/01.jpg" alt="Haaland">
+      <h3>Erling Haaland</h3>
+      <p>Man City</p>
+      <h4>🚀 Vua phá lưới Ngoại hạng Anh</h4>
+      <a href="top-epl-scorers.html" class="see-more" onclick="event.stopPropagation()">Xem Top EPL</a>
+    </div>
 
-  <script src="js/script.js"></script>
-</body>
-</html>
+    <!-- Mbappé -->
+    <div class="player-card"
+         onclick="window.location.href='Cau-thu/Mpappe.html'"
+         style="cursor:pointer;">
+      <img src="image/CauThu/Mpapee/01.png" alt="Mbappe">
+      <h3>Kylian Mbappé</h3>
+      <p>Real Madrid</p>
+      <h4>🔥 Ngôi sao trẻ sáng giá</h4>
+      <a href="top-youngstars.html" class="see-more" onclick="event.stopPropagation()">Xem Top sao trẻ</a>
+    </div>
+
+  </div>
+</section>
+<!-- Top CLB -->
+<section class="top-clubs">
+  <h2>🏆 Top Câu lạc bộ nổi bật</h2>
+  <div class="clubs-grid">
+    <div class="club-card">
+      <img src="image/CLB/RealMarid/01.jpg" alt="Real Madrid">
+      <h3>Real Madrid</h3>
+      <p>14 Cúp C1</p>
+      <h4>👑 CLB nhiều Champions League nhất</h4>
+      <a href="top-championsleague.html" class="see-more">Xem Top CLB C1</a>
+    </div>
+
+    <div class="club-card">
+      <img src="image/CLB/Liverpool/01.png" alt="Liverpool">
+      <h3>Liverpool</h3>
+      <p>6 Cúp C1</p>
+      <h4>🔥 Đội bóng giàu truyền thống EPL</h4>
+      <a href="top-eplclubs.html" class="see-more">Xem Top CLB EPL</a>
+    </div>
+
+    <div class="club-card">
+      <img src="image/CLB/ManCity/01.png" alt="Barcelona">
+      <h3>Manchester City</h3>
+      <p>7 Cúp FA</p>
+      <h4>🏆 4 lần vô địch Ngoại hạng Anh liên tiếp</h4>
+      <a href="top-la-liga.html" class="see-more">Xem Top CLB La Liga</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+  <div class="about-me">
+    <h3>🌟 Về tôi</h3>
+    <p>Xin chào! Mình là chủ nhân của <strong>TopFootball</strong>, nơi chia sẻ về bóng đá, cầu thủ và CLB hàng đầu thế giới.</p>
+  </div>
+
+<div class="social-links">
+  <h4>Kết nối với mình:</h4>
+  <a href="https://www.youtube.com/channel/UC_6sPAEuoaC4JeTdRVeN8vw" target="_blank">
+    <img src="image/icon/ytb.png" alt="YouTube">
+  </a>
+  <a href="https://www.tiktok.com/@empathanh56?lang=en" target="_blank">
+    <img src="image/icon/tt.png" alt="TikTok">
+  </a>
+  <a href="https://www.instagram.com/its_ltthanh/" target="_blank">
+    <img src="image/icon/ig.jpeg" alt="Instagram">
+  </a>
+  <a href="https://www.facebook.com/nhatkhai506" target="_blank">
+    <img src="image/icon/fb.png" alt="Facebook">
+  </a>
+</div>
+
+  <div class="contact-info">
+    <p>📧 Email: <a href="mailto:youremail@gmail.com">lethan2106@gmail.com</a></p>
+    <p>📞 SĐT: <a href="tel:0123456789">0375 815 821</a></p>
+  </div>
+
+  <p class="copy">© 2025 TopFootball | Designed by Chandler Bing</p>
+</footer>
